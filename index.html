@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haider & Sons | Store Locator & Branch Directory</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            emeraldBrand: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+              950: '#022c22',
+            },
+            accentGold: '#d97706',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+    .custom-pill-scroll::-webkit-scrollbar {
+      display: none;
+    }
+    .custom-pill-scroll {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-emeraldBrand-950 text-emeraldBrand-100 text-xs py-2 px-4 text-center font-medium border-b border-emeraldBrand-900/40">
+    <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 flex-wrap">
+      <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 uppercase tracking-wide">Airbnb & Hotel Delivery</span>
+      <span>Express room drop-off available across KLCC & Mont Kiara suites. Order via WhatsApp direct to your nearest branch.</span>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Logo Branding -->
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emeraldBrand-700 to-emeraldBrand-900 flex items-center justify-center text-white shadow-md shadow-emerald-900/20 border border-emeraldBrand-600">
+          <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-xl font-bold tracking-tight text-slate-900 leading-tight">HAIDER & SONS</h1>
+            <span class="text-[10px] bg-slate-100 text-slate-600 font-bold px-2 py-0.5 rounded-full uppercase tracking-wider border border-slate-200">Kuala Lumpur</span>
+          </div>
+          <p class="text-xs text-slate-500 font-medium">Marts • Premium Grocers • Fitness Hub</p>
+        </div>
+      </div>
+
+      <!-- Quick Action / Support -->
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/601125642194?text=Hi%20Haider%20%26%20Sons%2C%20I%20have%20a%20general%20inquiry." target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold rounded-lg bg-emeraldBrand-50 text-emeraldBrand-700 hover:bg-emeraldBrand-100 border border-emeraldBrand-200 transition-colors">
+          <i data-lucide="message-circle" class="w-4 h-4 text-emerald-600"></i>
+          <span>Central Support</span>
+        </a>
+        <button id="headerGeolocateBtn" class="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold rounded-lg bg-emeraldBrand-700 text-white hover:bg-emeraldBrand-800 shadow-sm transition-all transform active:scale-95">
+          <i data-lucide="navigation" class="w-4 h-4"></i>
+          <span>Near Me</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-b from-white via-slate-50 to-slate-100 border-b border-slate-200/80 pt-10 pb-8 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200 mb-3 shadow-xs">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        8 Prime City Locations in Kuala Lumpur
+      </span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3">
+        Find Your Nearest Store or Gym
+      </h2>
+      <p class="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto mb-8 font-normal leading-relaxed">
+        Locate our 24/7 convenience marts, organic grocers, and fitness nutrition centers across KLCC, Mont Kiara, and Chinatown. Tap below to navigate or chat instantly with any outlet.
+      </p>
+
+      <!-- Search & Geolocation Bar Container -->
+      <div class="bg-white p-2 sm:p-2.5 rounded-2xl shadow-lg border border-slate-200 max-w-3xl mx-auto">
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+          <!-- Search Input -->
+          <div class="relative flex-grow">
+            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+              <i data-lucide="search" class="w-5 h-5"></i>
+            </div>
+            <input 
+              type="text" 
+              id="searchInput" 
+              placeholder="Search branch name, street, or landmark (e.g. Vortex, Kiara, 24 Hours)..." 
+              class="w-full pl-11 pr-4 py-3 text-sm rounded-xl border border-transparent focus:border-emeraldBrand-500 focus:bg-emerald-50/20 focus:outline-none transition-all text-slate-800 placeholder-slate-400"
+            />
+            <button id="clearSearchBtn" class="hidden absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600">
+              <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <!-- Near Me Trigger Button -->
+          <button 
+            id="locateMeBtn" 
+            class="px-5 py-3 rounded-xl bg-slate-900 hover:bg-emeraldBrand-800 text-white font-medium text-sm flex items-center justify-center gap-2 transition-all shadow-sm active:scale-95 whitespace-nowrap"
+          >
+            <i data-lucide="locate-fixed" class="w-4 h-4 text-emerald-400"></i>
+            <span id="locateBtnText">Sort by Nearest</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Geolocation Status Notice Box -->
+      <div id="geoStatusNotice" class="hidden mt-3 text-xs text-slate-500 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-50/80 border border-emerald-200 text-emerald-800">
+        <i data-lucide="info" class="w-3.5 h-3.5 text-emerald-600"></i>
+        <span id="geoStatusText">Distance calculated from your current location</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter & Controls Toolbar -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-2 w-full">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 pb-4 border-b border-slate-200">
+      
+      <!-- Category Pills (Horizontal scrollable) -->
+      <div class="custom-pill-scroll flex items-center gap-2 overflow-x-auto py-1 scroll-smooth">
+        <button class="filter-pill active whitespace-nowrap px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all border bg-slate-900 text-white border-slate-900" data-filter="all">
+          All Outlets (<span id="countAll">8</span>)
+        </button>
+        <button class="filter-pill whitespace-nowrap px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all border bg-white text-slate-600 border-slate-200 hover:border-slate-300" data-filter="klcc">
+          KLCC Cluster
+        </button>
+        <button class="filter-pill whitespace-nowrap px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all border bg-white text-slate-600 border-slate-200 hover:border-slate-300" data-filter="montkiara">
+          Mont Kiara
+        </button>
+        <button class="filter-pill whitespace-nowrap px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all border bg-white text-slate-600 border-slate-200 hover:border-slate-300" data-filter="chinatown">
+          Chinatown / City
+        </button>
+        <button class="filter-pill whitespace-nowrap px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all border bg-white text-slate-600 border-slate-200 hover:border-slate-300" data-filter="fitness">
+          Fitness & Gym
+        </button>
+        <button class="filter-pill whitespace-nowrap px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all border bg-white text-slate-600 border-slate-200 hover:border-slate-300" data-filter="24hours">
+          Open 24 Hours
+        </button>
+        <button class="filter-pill whitespace-nowrap px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all border bg-white text-slate-600 border-slate-200 hover:border-slate-300" data-filter="opennow">
+          Open Right Now
+        </button>
+      </div>
+
+      <!-- Result Counter & Sort View Dropdown -->
+      <div class="flex items-center justify-between md:justify-end gap-3 text-xs text-slate-500">
+        <span id="resultsSummaryText" class="font-medium text-slate-600">Showing 8 of 8 outlets</span>
+        <div class="h-4 w-px bg-slate-200"></div>
+        <div class="flex items-center gap-1.5">
+          <span class="text-slate-400">Timezone:</span>
+          <span class="font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded border border-slate-200" id="currentMyTime">MYT --:--</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Branches Grid Section -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full flex-grow">
+    <!-- Grid container -->
+    <div id="branchesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Dynamic Branch Cards will be injected here via JavaScript -->
+    </div>
+
+    <!-- Empty State Notification -->
+    <div id="noResultsState" class="hidden text-center py-16 px-4">
+      <div class="w-16 h-16 bg-slate-100 text-slate-400 rounded-full flex items-center justify-center mx-auto mb-4">
+        <i data-lucide="map-pin-off" class="w-8 h-8"></i>
+      </div>
+      <h3 class="text-base font-bold text-slate-800 mb-1">No matching branches found</h3>
+      <p class="text-xs text-slate-500 max-w-sm mx-auto mb-6">We couldn't find any stores matching your current search term or filter selection.</p>
+      <button id="resetFiltersBtn" class="px-4 py-2 bg-emeraldBrand-700 text-white rounded-lg text-xs font-semibold hover:bg-emeraldBrand-800 transition">
+        Reset All Filters
+      </button>
+    </div>
+  </main>
+
+  <!-- Branch Detail Modal -->
+  <div id="branchModal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-xs p-4 hidden opacity-0 transition-opacity duration-200" role="dialog" aria-modal="true">
+    <div id="branchModalContent" class="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 transform scale-95 transition-transform duration-200 p-6 relative">
+      <!-- Modal Header -->
+      <button id="closeModalBtn" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 p-1.5 rounded-full hover:bg-slate-100 transition">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div id="modalBody">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="bg-slate-900 text-white px-4 py-3 rounded-xl shadow-xl flex items-center gap-3 text-xs font-medium border border-slate-700">
+      <span id="toastIcon" class="text-emerald-400"><i data-lucide="check" class="w-4 h-4"></i></span>
+      <span id="toastMessage">Success</span>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-300 border-t border-slate-800 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg bg-emeraldBrand-600 flex items-center justify-center text-white">
+              <i data-lucide="store" class="w-4 h-4"></i>
+            </div>
+            <span class="text-white font-bold text-lg tracking-tight">HAIDER & SONS GROUP</span>
+          </div>
+          <p class="text-xs text-slate-400 max-w-md leading-relaxed mb-4">
+            A premier retail convenience, gourmet grocer, and fitness lifestyle network serving Kuala Lumpur City Centre, Mont Kiara, and surrounding urban residences with 24/7 service and immediate WhatsApp delivery.
+          </p>
+          <div class="text-xs text-slate-400 space-y-1">
+            <p><span class="text-slate-200 font-semibold">Headquarters:</span> Bangunan Lee Yan Lian, Jalan Tun H.S. Lee, 50000 Kuala Lumpur</p>
+            <p><span class="text-slate-200 font-semibold">Contact:</span> +60 11-2564 2194 | info@haiderandsons.com</p>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold text-slate-200 uppercase tracking-wider mb-3">Quick Navigation</h4>
+          <ul class="text-xs space-y-2 text-slate-400">
+            <li><a href="#" class="hover:text-emerald-400 transition">KLCC Convenience Hubs</a></li>
+            <li><a href="#" class="hover:text-emerald-400 transition">Mont Kiara Gourmet Grocers</a></li>
+            <li><a href="#" class="hover:text-emerald-400 transition">Haider & Sons Fitness</a></li>
+            <li><a href="#" class="hover:text-emerald-400 transition">Condo & Airbnb Delivery</a></li>
+            <li><a href="#" class="hover:text-emerald-400 transition">Wholesale & Office Supply</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold text-slate-200 uppercase tracking-wider mb-3">Customer Service</h4>
+          <p class="text-xs text-slate-400 mb-3 leading-relaxed">
+            Need urgent assistance, stock check, or bulk replenishment for your suite or Airbnb?
+          </p>
+          <a href="https://wa.me/601125642194?text=Hi%20Haider%20%26%20Sons%20Helpdesk" target="_blank" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-emeraldBrand-600 hover:bg-emeraldBrand-500 text-white font-semibold text-xs transition">
+            <i data-lucide="message-square" class="w-4 h-4"></i>
+            Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-500">
+        <p>&copy; <span id="currentYear"></span> Haider & Sons Enterprise. All rights reserved.</p>
+        <p class="flex items-center gap-2">
+          <span>Kuala Lumpur Retail Network</span>
+          <span>•</span>
+          <span class="text-emerald-400">Interactive Branch Portal v2.0</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Complete Application Logic -->
+  <script>
+    /**
+     * Store Locations Data Model
+     * Includes coordinates for real Haversine distance calculations around Kuala Lumpur.
+     */
+    const BRANCHES = [
+      {
+        id: "hs-klcc-mart",
+        name: "Haider & Sons KLCC Mart",
+        brandGroup: "klcc",
+        typeTag: "24-Hour Mart",
+        tagColor: "bg-emerald-100 text-emerald-800 border-emerald-200",
+        address: "Ground Floor, Vortex Suites KLCC, 12 Jalan Sultan Ismail",
+        postcodeCity: "50250 Kuala Lumpur",
+        landmark: "Inside Vortex Suites, 400m from KLCC Petronas Towers",
+        phone: "+60 11-2564 2194",
+        whatsapp: "601125642194",
+        coordinates: { lat: 3.1558, lng: 101.7067 },
+        is24Hours: true,
+        openHour: 0,
+        closeHour: 24,
+        features: ["24 Hours Open", "Airbnb Room Delivery", "Cold Drinks & Ice Cream", "Vape & Tobacco", "Snacks & Instant Meals", "International Adapters"],
+        highlights: "Prime tourist location serving guests at Vortex, Marc, and Soho Suites 24 hours daily."
+      },
+      {
+        id: "sig-axis-klcc",
+        name: "Signature Axis KLCC Mart",
+        brandGroup: "klcc",
+        typeTag: "Premium Mart",
+        tagColor: "bg-indigo-100 text-indigo-800 border-indigo-200",
+        address: "Jalan Pinang, Kuala Lumpur City Centre",
+        postcodeCity: "50450 Kuala Lumpur",
+        landmark: "Adjacent to Menara Axis & Mandarin Oriental area",
+        phone: "+60 11-2564 2194",
+        whatsapp: "601125642194",
+        coordinates: { lat: 3.1542, lng: 101.7135 },
+        is24Hours: false,
+        openHour: 7, // 7:00 AM
+        closeHour: 26, // 2:00 AM next day
+        features: ["Imported Chocolates & Beverages", "Artisan Coffee To-Go", "Personal Care & Toiletries", "Pre-packed Sandwiches", "Fast Cashless Pay"],
+        highlights: "Curated snacks, imported European & Japanese beverages, and late-night hotel essentials."
+      },
+      {
+        id: "walk-thru-klcc",
+        name: "Walk Thru KLCC Mart",
+        brandGroup: "klcc",
+        typeTag: "Express Grab & Go",
+        tagColor: "bg-amber-100 text-amber-900 border-amber-200",
+        address: "Jalan Ampang / KLCC Corridor",
+        postcodeCity: "50450 Kuala Lumpur",
+        landmark: "Near LRT KLCC & Menara Public Bank",
+        phone: "+60 11-2564 2194",
+        whatsapp: "601125642194",
+        coordinates: { lat: 3.1595, lng: 101.7128 },
+        is24Hours: false,
+        openHour: 7, // 7:00 AM
+        closeHour: 24, // Midnight (12:00 AM)
+        features: ["Express Self-Checkout", "Chilled Ready-To-Eat", "Local Sim Cards & Top-ups", "Beverage Station", "Umbrellas & Travel Gear"],
+        highlights: "Designed for busy city commuters and transit riders along the bustling Ampang strip."
+      },
+      {
+        id: "hs-fitness-klcc",
+        name: "Haider & Sons Fitness KLCC",
+        brandGroup: "fitness",
+        typeTag: "Gym & Supplements",
+        tagColor: "bg-rose-100 text-rose-800 border-rose-200",
+        address: "Menara Hap Seng / Vortex Zone, Jalan Sultan Ismail",
+        postcodeCity: "50250 Kuala Lumpur",
+        landmark: "Next to Menara Hap Seng 1 & 2 commercial tower",
+        phone: "+60 11-2564 2194",
+        whatsapp: "601125642194",
+        coordinates: { lat: 3.1539, lng: 101.7052 },
+        is24Hours: false,
+        openHour: 6, // 6:00 AM
+        closeHour: 23, // 11:00 PM
+        features: ["Whey Protein & Creatine", "Pre-Workout Drinks", "BCAA & Energy Bars", "Gym Apparel & Straps", "Protein Shake Bar", "Certified Coaches"],
+        highlights: "Dedicated fitness nutrition center & boutique training space for downtown executives."
+      },
+      {
+        id: "niki-mart-klcc",
+        name: "Niki Mart KLCC",
+        brandGroup: "klcc",
+        typeTag: "24-Hour Convenience",
+        tagColor: "bg-emerald-100 text-emerald-800 border-emerald-200",
+        address: "Persiaran KLCC / Central Boulevard",
+        postcodeCity: "50088 Kuala Lumpur",
+        landmark: "Walking distance to Suria KLCC & As-Syakirin Mosque",
+        phone: "+60 11-2564 2194",
+        whatsapp: "601125642194",
+        coordinates: { lat: 3.1578, lng: 101.7161 },
+        is24Hours: true,
+        openHour: 0,
+        closeHour: 24,
+        features: ["24 Hours Open", "Instant Hot Food & Noodles", "Cold Sodas & Juices", "ATM Terminal Closeby", "Hygiene & First Aid Kits"],
+        highlights: "Round-the-clock neighborhood mart catering to embassy row, residents, and late tourists."
+      },
+      {
+        id: "hs-lee-yan-lian",
+        name: "Haider & Sons Mart Lee Yan Lian",
+        brandGroup: "chinatown",
+        typeTag: "Mart & Wholesale",
+        tagColor: "bg-blue-100 text-blue-800 border-blue-200",
+        address: "Bangunan Lee Yan Lian, Jalan Tun H.S. Lee",
+        postcodeCity: "50000 Kuala Lumpur",
+        landmark: "Near Petaling Street (Chinatown) & Pasar Seni LRT",
+        phone: "+60 11-2564 2194",
+        whatsapp: "601125642194",
+        coordinates: { lat: 3.1468, lng: 101.6974 },
+        is24Hours: false,
+        openHour: 8, // 8:00 AM
+        closeHour: 22, // 10:00 PM
+        features: ["Bulk Household Packs", "Spices & Dry Goods", "Canned Provisions", "Beverages Wholesale", "Hostel & Cafe Supplies"],
+        highlights: "Historic city center mart offering competitive prices, pantry bulk packs, and daily household needs."
+      },
+      {
+        id: "hs-grocer-mont-kiara",
+        name: "Haider & Sons Grocer Mont Kiara",
+        brandGroup: "montkiara",
+        typeTag: "Organic & Fresh Grocer",
+        tagColor: "bg-teal-100 text-teal-800 border-teal-200",
+        address: "Arcoris / Solaris Mont Kiara, Jalan Kiara 4",
+        postcodeCity: "50480 Kuala Lumpur",
+        landmark: "Opposite 1 Mont Kiara, near Arcoris Residences",
+        phone: "+60 11-2564 2194",
+        whatsapp: "601125642194",
+        coordinates: { lat: 3.1705, lng: 101.6528 },
+        is24Hours: false,
+        openHour: 8, // 8:00 AM
+        closeHour: 23, // 11:00 PM
+        features: ["Fresh Vegetables & Fruits", "Organic Dairy & Cheeses", "Imported Pasta & Sauces", "Gluten-Free Pantry", "Home Delivery to Condos"],
+        highlights: "Full-line supermarket catering to the Mont Kiara expat and family community."
+      },
+      {
+        id: "walk-thru-grocer-mk",
+        name: "Walk Thru Grocer Mont Kiara",
+        brandGroup: "montkiara",
+        typeTag: "Quick Grocer",
+        tagColor: "bg-teal-100 text-teal-800 border-teal-200",
+        address: "Jalan Kiara, Mont Kiara",
+        postcodeCity: "50480 Kuala Lumpur",
+        landmark: "Kiara Designer Suites & Mont Kiara Pines area",
+        phone: "+60 11-2564 2194",
+        whatsapp: "601125642194",
+        coordinates: { lat: 3.1672, lng: 101.6554 },
+        is24Hours: false,
+        openHour: 7.5, // 7:30 AM
+        closeHour: 24, // 12:00 AM
+        features: ["Fresh Milk & Bakery", "Ready Meal Bowls", "Household Essentials", "Pet Care & Treats", "Speed Checkout"],
+        highlights: "Fast neighborhood stop for fresh daily bread, pantry refills, and quick evening dinners."
+      }
+    ];
+
+    // State
+    let currentFilter = "all";
+    let searchQuery = "";
+    let userLocation = null;
+    let distanceSorted = false;
+
+    // Helper: Haversine distance in kilometers
+    function calculateDistanceKm(lat1, lon1, lat2, lon2) {
+      const R = 6371; // Earth radius in km
+      const dLat = (lat2 - lat1) * Math.PI / 180;
+      const dLon = (lon2 - lon1) * Math.PI / 180;
+      const a = 
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      return R * c;
+    }
+
+    // Helper: Determine dynamic Open/Closed status in Malaysian Time (UTC+8)
+    function getStoreStatus(branch) {
+      if (branch.is24Hours) {
+        return {
+          isOpen: true,
+          statusText: "Open 24 Hours",
+          badgeClass: "bg-emerald-50 text-emerald-700 border-emerald-200",
+          dotClass: "bg-emerald-500",
+          detailTime: "24 Hours Service"
+        };
+      }
+
+      // Compute current decimal time in MYT
+      const now = new Date();
+      // UTC time + 8 hours
+      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+      const mytDate = new Date(utc + (3600000 * 8));
+      
+      const currentHours = mytDate.getHours();
+      const currentMinutes = mytDate.getMinutes();
+      const currentDecimalTime = currentHours + (currentMinutes / 60);
+
+      // Handle branches closing past midnight (e.g. 26 = 2:00 AM)
+      const open = branch.openHour;
+      const close = branch.closeHour;
+
+      let isOpen = false;
+
+      if (close > 24) {
+        // Example: 7:00 AM to 2:00 AM next day
+        const earlyMorningClose = close - 24;
+        if (currentDecimalTime >= open || currentDecimalTime < earlyMorningClose) {
+          isOpen = true;
+        }
+      } else {
+        // Regular closing within same day (e.g. 8:00 AM to 11:00 PM)
+        if (currentDecimalTime >= open && currentDecimalTime < close) {
+          isOpen = true;
+        }
+      }
+
+      // Format readable hours string
+      const formatTime = (h) => {
+        let actualH = h >= 24 ? h - 24 : h;
+        const minutes = (actualH % 1) * 60;
+        const wholeHours = Math.floor(actualH);
+        const period = (h >= 12 && h < 24) || (h >= 36) ? "PM" : "AM";
+        const displayH = wholeHours % 12 === 0 ? 12 : wholeHours % 12;
+        const minStr = minutes > 0 ? `:${Math.round(minutes).toString().padStart(2, '0')}` : ':00';
+        return `${displayH}${minStr} ${period}`;
+      };
+
+      const hoursString = `${formatTime(open)} - ${formatTime(close)}`;
+
+      if (isOpen) {
+        return {
+          isOpen: true,
+          statusText: `Open Now • Closes ${formatTime(close)}`,
+          badgeClass: "bg-emerald-50 text-emerald-700 border-emerald-200",
+          dotClass: "bg-emerald-500",
+          detailTime: hoursString
+        };
+      } else {
+        return {
+          isOpen: false,
+          statusText: `Closed • Opens ${formatTime(open)}`,
+          badgeClass: "bg-slate-100 text-slate-600 border-slate-200",
+          dotClass: "bg-slate-400",
+          detailTime: hoursString
+        };
+      }
+    }
+
+    // Update real-time clock indicator in toolbar
+    function updateClockDisplay() {
+      const now = new Date();
+      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+      const mytDate = new Date(utc + (3600000 * 8));
+      
+      const hours = mytDate.getHours().toString().padStart(2, '0');
+      const minutes = mytDate.getMinutes().toString().padStart(2, '0');
+      const clockEl = document.getElementById('currentMyTime');
+      if (clockEl) {
+        clockEl.textContent = `MYT ${hours}:${minutes}`;
+      }
+    }
+
+    // Render branch cards
+    function renderBranches() {
+      const grid = document.getElementById("branchesGrid");
+      const noResults = document.getElementById("noResultsState");
+      const summaryText = document.getElementById("resultsSummaryText");
+
+      // Filter branches
+      let filtered = BRANCHES.filter(branch => {
+        // Query match
+        const query = searchQuery.toLowerCase().trim();
+        const matchesQuery = !query || 
+          branch.name.toLowerCase().includes(query) ||
+          branch.address.toLowerCase().includes(query) ||
+          branch.landmark.toLowerCase().includes(query) ||
+          branch.typeTag.toLowerCase().includes(query);
+
+        if (!matchesQuery) return false;
+
+        // Category filter match
+        const status = getStoreStatus(branch);
+        if (currentFilter === "all") return true;
+        if (currentFilter === "klcc") return branch.brandGroup === "klcc";
+        if (currentFilter === "montkiara") return branch.brandGroup === "montkiara";
+        if (currentFilter === "chinatown") return branch.brandGroup === "chinatown";
+        if (currentFilter === "fitness") return branch.brandGroup === "fitness" || branch.id.includes("fitness");
+        if (currentFilter === "24hours") return branch.is24Hours;
+        if (currentFilter === "opennow") return status.isOpen;
+
+        return true;
+      });
+
+      // Calculate distances if user location is available
+      filtered = filtered.map(b => {
+        let dist = null;
+        if (userLocation) {
+          dist = calculateDistanceKm(
+            userLocation.latitude, 
+            userLocation.longitude, 
+            b.coordinates.lat, 
+            b.coordinates.lng
+          );
+        }
+        return { ...b, distance: dist };
+      });
+
+      // Sort by distance if requested
+      if (distanceSorted && userLocation) {
+        filtered.sort((a, b) => (a.distance || 9999) - (b.distance || 9999));
+      }
+
+      // Update counter UI
+      summaryText.textContent = `Showing ${filtered.length} of ${BRANCHES.length} outlets`;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = "";
+        noResults.classList.remove("hidden");
+        return;
+      }
+
+      noResults.classList.add("hidden");
+
+      // Build HTML
+      grid.innerHTML = filtered.map(branch => {
+        const status = getStoreStatus(branch);
+        const encodedName = encodeURIComponent(branch.name);
+        const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${branch.coordinates.lat},${branch.coordinates.lng}`;
+        const wazeUrl = `https://waze.com/ul?ll=${branch.coordinates.lat},${branch.coordinates.lng}&navigate=yes`;
+        const waText = encodeURIComponent(`Hi ${branch.name}, I am visiting from your website and want to check stock / order to my address.`);
+        const waUrl = `https://wa.me/${branch.whatsapp}?text=${waText}`;
+
+        return `
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-xs hover:shadow-md transition-all duration-200 flex flex-col justify-between overflow-hidden group">
+            <!-- Card Body Top -->
+            <div class="p-5 sm:p-6 pb-4">
+              <!-- Header Badges -->
+              <div class="flex items-start justify-between gap-2 mb-3">
+                <span class="inline-flex items-center text-[11px] font-semibold px-2.5 py-1 rounded-md border ${branch.tagColor}">
+                  ${branch.typeTag}
+                </span>
+
+                <!-- Open/Closed badge -->
+                <span class="inline-flex items-center gap-1.5 text-[11px] font-medium px-2.5 py-1 rounded-full border ${status.badgeClass}">
+                  <span class="w-1.5 h-1.5 rounded-full ${status.dotClass}"></span>
+                  ${status.statusText}
+                </span>
+              </div>
+
+              <!-- Branch Title -->
+              <h3 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-emeraldBrand-700 transition-colors leading-snug mb-1.5">
+                ${branch.name}
+              </h3>
+
+              <!-- Address & Landmark -->
+              <div class="space-y-1.5 text-xs text-slate-600 mb-4">
+                <div class="flex items-start gap-2">
+                  <i data-lucide="map-pin" class="w-4 h-4 text-slate-400 shrink-0 mt-0.5"></i>
+                  <span>${branch.address}, <span class="font-medium text-slate-700">${branch.postcodeCity}</span></span>
+                </div>
+                <div class="flex items-start gap-2 text-slate-500">
+                  <i data-lucide="compass" class="w-4 h-4 text-emeraldBrand-600 shrink-0 mt-0.5"></i>
+                  <span class="italic text-[11px]">${branch.landmark}</span>
+                </div>
+              </div>
+
+              <!-- Distance indicator (if present) -->
+              ${branch.distance !== null ? `
+                <div class="mb-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-800 text-xs font-semibold border border-emerald-200">
+                  <i data-lucide="map" class="w-3.5 h-3.5 text-emerald-600"></i>
+                  <span>Approx. ${branch.distance < 1 ? Math.round(branch.distance * 1000) + ' m' : branch.distance.toFixed(1) + ' km'} from you</span>
+                </div>
+              ` : ''}
+
+              <!-- Mini feature pills -->
+              <div class="flex flex-wrap gap-1.5 mb-2">
+                ${branch.features.slice(0, 3).map(f => `
+                  <span class="text-[10px] bg-slate-100 text-slate-600 font-medium px-2 py-0.5 rounded border border-slate-200">
+                    ${f}
+                  </span>
+                `).join('')}
+                ${branch.features.length > 3 ? `
+                  <button onclick="openBranchModal('${branch.id}')" class="text-[10px] text-emeraldBrand-700 font-semibold hover:underline">
+                    +${branch.features.length - 3} more
+                  </button>
+                ` : ''}
+              </div>
+            </div>
+
+            <!-- Card Actions Footer -->
+            <div class="p-4 bg-slate-50/70 border-t border-slate-100 flex flex-col gap-2">
+              <!-- Primary Row: Directions & WhatsApp -->
+              <div class="grid grid-cols-2 gap-2">
+                <a 
+                  href="${mapsUrl}" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-white border border-slate-200 hover:border-slate-300 text-slate-700 font-semibold text-xs transition shadow-2xs hover:bg-slate-50"
+                  title="Open in Google Maps"
+                >
+                  <i data-lucide="navigation-2" class="w-3.5 h-3.5 text-blue-600"></i>
+                  <span>Directions</span>
+                </a>
+
+                <a 
+                  href="${waUrl}" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-emeraldBrand-600 hover:bg-emeraldBrand-700 text-white font-semibold text-xs transition shadow-2xs"
+                  title="WhatsApp this store"
+                >
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                  <span>WhatsApp</span>
+                </a>
+              </div>
+
+              <!-- Secondary Row: Waze & More Info -->
+              <div class="flex items-center justify-between pt-1 text-[11px] px-1">
+                <a 
+                  href="${wazeUrl}" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="text-slate-500 hover:text-slate-800 font-medium inline-flex items-center gap-1"
+                >
+                  <i data-lucide="external-link" class="w-3 h-3 text-cyan-600"></i>
+                  <span>Open in Waze</span>
+                </a>
+
+                <button 
+                  onclick="openBranchModal('${branch.id}')" 
+                  class="text-emeraldBrand-700 hover:text-emeraldBrand-800 font-semibold inline-flex items-center gap-1 cursor-pointer"
+                >
+                  <span>Branch Details & Hours</span>
+                  <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      // Refresh lucide icons in dynamic markup
+      lucide.createIcons();
+    }
+
+    // Modal Details Logic
+    function openBranchModal(branchId) {
+      const branch = BRANCHES.find(b => b.id === branchId);
+      if (!branch) return;
+
+      const modal = document.getElementById("branchModal");
+      const modalContent = document.getElementById("branchModalContent");
+      const modalBody = document.getElementById("modalBody");
+      const status = getStoreStatus(branch);
+
+      const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${branch.coordinates.lat},${branch.coordinates.lng}`;
+      const wazeUrl = `https://waze.com/ul?ll=${branch.coordinates.lat},${branch.coordinates.lng}&navigate=yes`;
+      const waText = encodeURIComponent(`Hello ${branch.name}, I'm inquiring from your store website.`);
+      const waUrl = `https://wa.me/${branch.whatsapp}?text=${waText}`;
+
+      modalBody.innerHTML = `
+        <div class="pr-6 mb-4">
+          <span class="inline-flex items-center text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider ${branch.tagColor} mb-1">
+            ${branch.typeTag}
+          </span>
+          <h3 class="text-xl font-extrabold text-slate-900 leading-tight">${branch.name}</h3>
+          <p class="text-xs text-slate-500 mt-1">${branch.highlights}</p>
+        </div>
+
+        <div class="space-y-4 text-xs border-y border-slate-100 py-4 my-4">
+          <!-- Hours -->
+          <div class="flex items-start gap-3">
+            <div class="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0">
+              <i data-lucide="clock" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-slate-900">Operating Hours</p>
+              <p class="text-slate-600">${status.detailTime}</p>
+              <span class="inline-block mt-1 font-semibold text-[11px] ${status.isOpen ? 'text-emerald-600' : 'text-slate-500'}">
+                ● ${status.statusText}
+              </span>
+            </div>
+          </div>
+
+          <!-- Address -->
+          <div class="flex items-start gap-3">
+            <div class="w-7 h-7 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center shrink-0">
+              <i data-lucide="map-pin" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-slate-900">Complete Address</p>
+              <p class="text-slate-600">${branch.address}</p>
+              <p class="text-slate-500">${branch.postcodeCity}</p>
+              <p class="text-[11px] text-emeraldBrand-700 font-medium mt-0.5">Landmark: ${branch.landmark}</p>
+            </div>
+          </div>
+
+          <!-- Contact Phone -->
+          <div class="flex items-start gap-3">
+            <div class="w-7 h-7 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center shrink-0">
+              <i data-lucide="phone" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-slate-900">Store Direct Line</p>
+              <a href="tel:${branch.phone.replace(/\\s+/g, '')}" class="text-emeraldBrand-700 font-medium hover:underline">${branch.phone}</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Amenities / Offerings -->
+        <div class="mb-6">
+          <p class="text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">Available At This Outlet</p>
+          <div class="grid grid-cols-2 gap-2">
+            ${branch.features.map(feat => `
+              <div class="flex items-center gap-2 p-2 rounded-lg bg-slate-50 border border-slate-200/70 text-[11px] font-medium text-slate-700">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
+                <span class="truncate">${feat}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <!-- Action Links inside Modal -->
+        <div class="grid grid-cols-2 gap-3 pt-2">
+          <a href="${mapsUrl}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs transition">
+            <i data-lucide="navigation" class="w-4 h-4 text-blue-600"></i>
+            Google Maps
+          </a>
+          <a href="${wazeUrl}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-cyan-50 hover:bg-cyan-100 text-cyan-800 font-semibold text-xs border border-cyan-200 transition">
+            <i data-lucide="external-link" class="w-4 h-4 text-cyan-600"></i>
+            Waze Route
+          </a>
+        </div>
+
+        <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="mt-3 w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-emeraldBrand-600 hover:bg-emeraldBrand-700 text-white font-semibold text-xs transition shadow-sm">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          Chat Directly on WhatsApp
+        </a>
+      `;
+
+      modal.classList.remove("hidden");
+      setTimeout(() => {
+        modal.classList.remove("opacity-0");
+        modalContent.classList.remove("scale-95");
+        modalContent.classList.add("scale-100");
+      }, 10);
+
+      lucide.createIcons();
+    }
+
+    function closeModal() {
+      const modal = document.getElementById("branchModal");
+      const modalContent = document.getElementById("branchModalContent");
+      modal.classList.add("opacity-0");
+      modalContent.classList.remove("scale-100");
+      modalContent.classList.add("scale-95");
+      setTimeout(() => {
+        modal.classList.add("hidden");
+      }, 200);
+    }
+
+    // Toast alert helper
+    function showToast(message, isSuccess = true) {
+      const toast = document.getElementById("toast");
+      const msg = document.getElementById("toastMessage");
+      const icon = document.getElementById("toastIcon");
+
+      msg.textContent = message;
+      icon.innerHTML = isSuccess 
+        ? '<i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>'
+        : '<i data-lucide="alert-circle" class="w-4 h-4 text-amber-400"></i>';
+
+      lucide.createIcons();
+
+      toast.classList.remove("translate-y-24", "opacity-0");
+      setTimeout(() => {
+        toast.classList.add("translate-y-24", "opacity-0");
+      }, 3500);
+    }
+
+    // Geolocation trigger
+    function requestGeolocation() {
+      const locateBtnText = document.getElementById("locateBtnText");
+      const noticeBox = document.getElementById("geoStatusNotice");
+      const noticeText = document.getElementById("geoStatusText");
+
+      if (!navigator.geolocation) {
+        showToast("Geolocation is not supported by your browser.", false);
+        return;
+      }
+
+      locateBtnText.textContent = "Locating...";
+
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          userLocation = {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+          };
+          distanceSorted = true;
+          locateBtnText.textContent = "Sorted by Nearest";
+          
+          noticeBox.classList.remove("hidden");
+          noticeText.textContent = `Sorted by proximity to your current GPS position (${userLocation.latitude.toFixed(3)}, ${userLocation.longitude.toFixed(3)})`;
+          
+          showToast("Calculated nearest branches to you!");
+          renderBranches();
+        },
+        (error) => {
+          locateBtnText.textContent = "Sort by Nearest";
+          let message = "Could not fetch your location.";
+          if (error.code === error.PERMISSION_DENIED) {
+            message = "Location permission denied. Please allow location access.";
+          }
+          showToast(message, false);
+        },
+        { enableHighAccuracy: true, timeout: 8000 }
+      );
+    }
+
+    // Initialize Event Listeners
+    document.addEventListener("DOMContentLoaded", () => {
+      // Set current year in footer
+      document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+      // Start clock & update status
+      updateClockDisplay();
+      setInterval(updateClockDisplay, 60000);
+
+      // Search Input
+      const searchInput = document.getElementById("searchInput");
+      const clearSearchBtn = document.getElementById("clearSearchBtn");
+
+      searchInput.addEventListener("input", (e) => {
+        searchQuery = e.target.value;
+        if (searchQuery.trim().length > 0) {
+          clearSearchBtn.classList.remove("hidden");
+        } else {
+          clearSearchBtn.classList.add("hidden");
+        }
+        renderBranches();
+      });
+
+      clearSearchBtn.addEventListener("click", () => {
+        searchInput.value = "";
+        searchQuery = "";
+        clearSearchBtn.classList.add("hidden");
+        renderBranches();
+      });
+
+      // Filter Pills
+      const pills = document.querySelectorAll(".filter-pill");
+      pills.forEach(pill => {
+        pill.addEventListener("click", () => {
+          pills.forEach(p => {
+            p.classList.remove("active", "bg-slate-900", "text-white", "border-slate-900");
+            p.classList.add("bg-white", "text-slate-600", "border-slate-200");
+          });
+
+          pill.classList.add("active", "bg-slate-900", "text-white", "border-slate-900");
+          pill.classList.remove("bg-white", "text-slate-600", "border-slate-200");
+
+          currentFilter = pill.getAttribute("data-filter");
+          renderBranches();
+        });
+      });
+
+      // Geolocation buttons
+      document.getElementById("locateMeBtn").addEventListener("click", requestGeolocation);
+      document.getElementById("headerGeolocateBtn").addEventListener("click", () => {
+        requestGeolocation();
+        window.scrollTo({ top: 350, behavior: 'smooth' });
+      });
+
+      // Reset filters button in empty state
+      document.getElementById("resetFiltersBtn").addEventListener("click", () => {
+        searchInput.value = "";
+        searchQuery = "";
+        clearSearchBtn.classList.add("hidden");
+        currentFilter = "all";
+
+        pills.forEach(p => {
+          if (p.getAttribute("data-filter") === "all") {
+            p.classList.add("active", "bg-slate-900", "text-white", "border-slate-900");
+            p.classList.remove("bg-white", "text-slate-600", "border-slate-200");
+          } else {
+            p.classList.remove("active", "bg-slate-900", "text-white", "border-slate-900");
+            p.classList.add("bg-white", "text-slate-600", "border-slate-200");
+          }
+        });
+
+        renderBranches();
+      });
+
+      // Modal close handlers
+      document.getElementById("closeModalBtn").addEventListener("click", closeModal);
+      document.getElementById("branchModal").addEventListener("click", (e) => {
+        if (e.target.id === "branchModal") {
+          closeModal();
+        }
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeModal();
+      });
+
+      // Initial Render
+      renderBranches();
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
